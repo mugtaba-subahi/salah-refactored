@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "docker:install": "docker-compose run --rm client npm install",
+    "docker:start": "docker-compose up",
+    "docker:down": "docker-compose down --remove-orphans"
   },
   "dependencies": {
     "core-js": "^3.6.5",
