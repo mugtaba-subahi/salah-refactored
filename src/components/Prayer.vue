@@ -31,7 +31,7 @@ export default {
     }
 
     &--arabic {
-      @apply .justify-self-end .leading-6 .tracking-wide .text-xl;
+      @apply .justify-self-end .leading-6 .text-xl;
     }
   }
 }
