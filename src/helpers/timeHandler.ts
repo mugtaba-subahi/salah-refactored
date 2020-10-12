@@ -1,9 +1,12 @@
-import convertTime from 'convert-time';
-
 export default (time: string, format: string): number | boolean | null => {
+  const currentTimeMS: number = new Date().getTime();
+  const [hour, minute] = time.split(':');
+
   const now = new Date();
-  const currentTimeMS = now.getTime();
-  const nextTimeMS = convertTime(time, 'hh:mm').valueOf();
+  now.setHours(+hour);
+  now.setMinutes(+minute);
+
+  const nextTimeMS: number = now.valueOf();
 
   switch (format) {
     case 'remainder':

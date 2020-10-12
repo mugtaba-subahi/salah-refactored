@@ -5,3 +5,4 @@ declare module '*.vue' {
 }
 
 declare module 'convert-time';
+declare module 'tiny-timer';

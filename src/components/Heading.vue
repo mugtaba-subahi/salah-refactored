@@ -1,40 +1,34 @@
 <template>
-  <section class="section-component">
-    <p class="heading">London, UK</p>
+  <section class="heading">
+    <p class="location">London, UK</p>
     <p class="date">{{ date }}</p>
     <img class="img" src="@/assets/mosque.svg" alt="Icon of a mosque" />
   </section>
 </template>
 
-<script>
-import getDate from "../helpers/getDate.js";
+<script lang="ts" setup>
+import { ref } from 'vue';
+import getDate from '../helpers/getDate';
 
-export default {
-  data() {
-    return {
-      date: ""
-    };
-  },
-  mounted() {
-    this.date = getDate;
-  }
-};
+export const date = ref(getDate);
+
+export default {}; // stops typescript from crying
 </script>
 
-<style lang="scss" scoped>
-.section-component {
+<style lang="postcss" scoped>
+.heading {
   display: grid;
   grid-auto-rows: max-content;
   grid-template-columns: 1fr auto;
   grid-template-areas:
-    "heading img"
-    "date    img";
+    'location img'
+    'date    img';
 }
 
-.heading {
+.location {
   letter-spacing: 0.5px;
   opacity: 0.5;
-  grid-area: heading;
+  grid-area: location;
 }
 .date {
   font-size: 1.125rem;

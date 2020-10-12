@@ -1,3 +1,5 @@
-uninstall momentjs
 fix Prayer interface 'passed' from any to boolean
 look into [key: string]: any;
+swap from normal css to tailwindcss
+fix all TODO: FIX THIS 'any' comments
+fix all typescript @ts-ignore

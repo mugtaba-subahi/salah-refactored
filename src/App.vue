@@ -1,21 +1,36 @@
 <template>
-  <button @click="getData">eee</button>
-  <div v-for="prayer in data" :key="prayer">
-    <br />
-    <p>{{ prayer.english }}</p>
-    <p>{{ prayer.time }}</p>
-    <p>{{ prayer.arabic }}</p>
-    <br />
-  </div>
+  <Timer />
+  <Heading class="heading" />
+  <Prayer v-for="prayer in store.prayers" :key="prayer" v-bind="prayer" />
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
-import getDataHelper from './helpers/getData';
+// @ts-nocheck
+import { onMounted } from 'vue';
+import Store from './store';
+import TimerComponent from './components/Timer.vue';
+import HeadingComponent from './components/Heading.vue';
+import PrayerComponent from './components/Prayer.vue';
+import setDataHelper from './helpers/setData';
+import setConvertedTimeHelper from './helpers/setConvertedTime';
+import setNextPrayerHelper from './helpers/setNextPrayer';
+import setTimerHelper from './helpers/setTimer';
 
-export let data = ref({});
+// state
+export const store = Store;
 
-export const getData = async () => (data.value = await getDataHelper());
+// components
+export const Timer = TimerComponent;
+export const Heading = HeadingComponent;
+export const Prayer = PrayerComponent;
+
+// hooks
+onMounted(async () => {
+  await setDataHelper();
+  setConvertedTimeHelper();
+  setNextPrayerHelper();
+  setTimerHelper();
+});
 </script>
 
 <style lang="postcss">
@@ -30,14 +45,13 @@ body {
   user-select: none;
   background: linear-gradient(#031b4b, #660ca1);
   color: white;
+  font-family: 'Roboto';
+  padding: 16px;
+}
+
+.heading {
+  margin-bottom: 32px;
 }
 </style>
 
-<style lang="postcss" scoped>
-.s {
-  color: red;
-  &_no {
-    color: green;
-  }
-}
-</style>
+<style lang="postcss" scoped></style>
