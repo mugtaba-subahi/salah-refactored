@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import { IApiPrayers, IPrayer } from '../interfaces';
 import Store from '../store';
 
@@ -26,19 +24,19 @@ export default async (): Promise<void> => {
   //   city: 'london'
   // };
 
-  const prayers: IPrayer[] = [];
+  const prayers: IPrayer[] = Store.english.map(
+    (name: string, index: number): IPrayer => {
+      const prayer = {
+        arabic: Store.arabic[index],
+        english: name,
+        isNext: false,
+        passed: false,
+        time: data[name.toLocaleLowerCase()]
+      };
 
-  Store.english.map((name, index) => {
-    const prayer = {
-      arabic: Store.arabic[index],
-      english: name,
-      isNext: false,
-      passed: false,
-      time: data[name.toLocaleLowerCase()]
-    };
-
-    prayers.push(prayer);
-  });
+      return prayer;
+    }
+  );
 
   Store.prayers = prayers;
 };

@@ -1,7 +1,7 @@
 <template>
   <div class="timer">
     <p class="timer__item" v-if="store.nextPrayerIndex !== -1">{{ store.prayers[store.nextPrayerIndex].english }} in</p>
-    <p class="timer__item timer--timer" v-if="store.nextPrayerIndex !== -1">{{ store.remainder }}</p>
+    <p class="timer__item timer--time" v-if="store.nextPrayerIndex !== -1">{{ store.remainder }}</p>
     <p class="timer__item" v-else>All prayers passed</p>
   </div>
 </template>
@@ -23,7 +23,7 @@ export const store = Store;
     line-height: 1.5rem;
   }
 
-  &--timer {
+  &--time {
     font-size: 1.4238rem;
     line-height: 1.875rem;
     opacity: 1;

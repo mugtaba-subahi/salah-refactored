@@ -1,5 +1,5 @@
 export interface IApiPrayers {
-  [key: string]: any;
+  [key: string]: string;
   city: string;
   date: string;
   fajr: string;
@@ -18,8 +18,8 @@ export interface IApiPrayers {
 
 export interface IPrayer {
   time: string;
-  passed: any; // CHANGE THIS
+  passed: boolean;
   english: string;
   arabic: string;
-  isNext?: boolean;
+  isNext: boolean;
 }
