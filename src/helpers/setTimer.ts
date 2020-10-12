@@ -2,16 +2,18 @@ import TinyTimer from 'tiny-timer';
 import dayjs from 'dayjs';
 import Store from '../store';
 import { IPrayer } from '../interfaces';
-import timeHandlerHelper from './timeHandler';
 import setNextPrayerHelper from './setNextPrayer';
+import militaryToMilliseconds from './militaryToMilliseconds';
 
-// TODO: fix any
 export default () => {
   const nextPrayer: IPrayer = Store.prayers[Store.nextPrayerIndex];
-  const remainderMS = timeHandlerHelper(nextPrayer.time, 'remainder');
+  const nextPrayerTime: number = militaryToMilliseconds(nextPrayer.time);
+
+  const now: number = new Date().getTime();
+  const remainder = nextPrayerTime - now;
 
   const timer = new TinyTimer();
-  timer.start(remainderMS);
+  timer.start(remainder);
 
   timer.on('tick', (tick: number) => {
     const timeLeft = dayjs('2000-01-01 00:00:00')

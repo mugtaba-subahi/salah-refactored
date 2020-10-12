@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 import { IApiPrayers, IPrayer } from '../interfaces';
 import Store from '../store';
 
@@ -8,18 +10,18 @@ export default async (): Promise<void> => {
   const data: IApiPrayers = await response.json();
 
   // const data: IApiPrayers = {
-  //   fajr: '00:14',
-  //   fajr_jamat: '00:14',
-  //   sunrise: '00:14',
-  //   dhuhr: '00:14',
-  //   dhuhr_jamat: '00:14',
-  //   asr: '00:14',
-  //   asr_2: '00:14',
-  //   asr_jamat: '00:14',
-  //   date: '2020-00:14',
-  //   magrib: '00:14',
-  //   magrib_jamat: '00:14',
-  //   isha: '01:31',
+  //   fajr: '17:22',
+  //   fajr_jamat: '17:22',
+  //   sunrise: '17:23',
+  //   dhuhr: '17:24',
+  //   dhuhr_jamat: '17:22',
+  //   asr: '17:25',
+  //   asr_2: '17:22',
+  //   asr_jamat: '17:22',
+  //   date: '2020-17:22',
+  //   magrib: '17:26',
+  //   magrib_jamat: '17:22',
+  //   isha: '17:27',
   //   isha_jamat: '00:01',
   //   city: 'london'
   // };

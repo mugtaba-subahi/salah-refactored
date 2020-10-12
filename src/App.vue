@@ -13,7 +13,6 @@ import PrayerComponent from './components/Prayer.vue';
 import setDataHelper from './helpers/setData';
 import setConvertedTimeHelper from './helpers/setConvertedTime';
 import setNextPrayerHelper from './helpers/setNextPrayer';
-import setTimerHelper from './helpers/setTimer';
 
 // state
 export const store = Store;
@@ -28,7 +27,6 @@ onMounted(async () => {
   await setDataHelper();
   setConvertedTimeHelper();
   setNextPrayerHelper();
-  setTimerHelper();
 });
 </script>
 
@@ -47,10 +45,10 @@ body {
   font-family: 'Roboto';
   padding: 16px;
 }
+</style>
 
+<style lang="postcss" scoped>
 .heading {
   margin-bottom: 32px;
 }
 </style>
-
-<style lang="postcss" scoped></style>
