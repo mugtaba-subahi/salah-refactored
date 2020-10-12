@@ -24,9 +24,13 @@ export const Prayer: Component = PrayerComponent;
 
 // hooks
 onMounted(async () => {
-  await setDataHelper();
-  setConvertedTimeHelper();
-  setNextPrayerHelper();
+  try {
+    await setDataHelper();
+    setConvertedTimeHelper();
+    setNextPrayerHelper();
+  } catch (error) {
+    console.log(error);
+  }
 });
 </script>
 
