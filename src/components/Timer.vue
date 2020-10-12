@@ -13,20 +13,14 @@ export const store = Store;
 
 <style lang="postcss" scoped>
 .timer {
-  margin-bottom: 32px;
-  display: grid;
-  justify-items: center;
+  @apply .mb-8 .grid .justify-items-center;
 
   &__item {
-    opacity: 0.5;
-    font-size: 0.8889rem;
-    line-height: 1.5rem;
+    @apply .opacity-50 .text-sm;
   }
 
   &--time {
-    font-size: 1.4238rem;
-    line-height: 1.875rem;
-    opacity: 1;
+    @apply .opacity-100 .text-2xl;
   }
 }
 </style>

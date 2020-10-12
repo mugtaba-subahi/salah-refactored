@@ -21,36 +21,24 @@ export default {
 
 <style lang="postcss" scoped>
 .prayer {
-  font-size: 1.125rem;
-  display: grid;
-  justify-items: center;
-  grid-template-columns: repeat(3, 1fr);
-  transition: 0.3s;
-  opacity: 0.5;
-  padding: 0 20px;
-  border-radius: 3px;
+  @apply .grid .grid-cols-3 .justify-items-center .text-lg .rounded .px-5 .opacity-50 .duration-300;
 
   &__item {
-    justify-items: center;
-    padding-top: 12px;
-    padding-bottom: 12px;
+    @apply .py-3 .justify-items-center;
 
     &--english {
-      justify-self: start;
+      @apply .justify-self-start;
     }
 
     &--arabic {
-      justify-self: end;
-      font-size: 1.25rem;
-      line-height: 1.4rem;
-      letter-spacing: 0.3px;
+      @apply .justify-self-end .leading-6 .tracking-wide .text-xl;
     }
   }
 }
 
 .isNext,
 .passed {
-  opacity: 1;
+  @apply .opacity-100;
 }
 
 .isNext {

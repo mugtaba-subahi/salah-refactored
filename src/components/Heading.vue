@@ -15,28 +15,25 @@ export const date = ref(getDate);
 
 <style lang="postcss" scoped>
 .heading {
-  display: grid;
-  grid-auto-rows: max-content;
   grid-template-columns: 1fr auto;
   grid-template-areas:
-    'location img'
-    'date    img';
+    'location  img'
+    'date      img';
+
+  @apply .grid;
 
   &--location {
-    letter-spacing: 0.5px;
-    opacity: 0.5;
     grid-area: location;
+    @apply .opacity-50 .tracking-wide;
   }
   &--date {
-    font-size: 1.125rem;
-    line-height: 1.5rem;
+    @apply .text-lg .leading-6;
   }
 
   &--img {
     grid-area: img;
-    width: 50px;
-    pointer-events: none;
     filter: drop-shadow(0 2px 3px hsla(0, 91%, 45%, 0.22));
+    @apply .w-12 .pointer-events-none;
   }
 }
 </style>

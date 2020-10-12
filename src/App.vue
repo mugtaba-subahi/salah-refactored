@@ -35,20 +35,18 @@ onMounted(async () => {
 
 html,
 body {
-  height: 100%;
+  @apply .h-full;
 }
 
 body {
-  user-select: none;
-  background: linear-gradient(#031b4b, #660ca1);
-  color: white;
   font-family: 'Roboto';
-  padding: 16px;
+  background: linear-gradient(#031b4b, #660ca1);
+  @apply .text-white .select-none .p-4;
 }
 </style>
 
 <style lang="postcss" scoped>
 .heading {
-  margin-bottom: 32px;
+  @apply .mb-8;
 }
 </style>
