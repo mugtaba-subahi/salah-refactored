@@ -3,13 +3,13 @@
 import TinyTimer from 'tiny-timer';
 import dayjs from 'dayjs';
 import Store from '../store';
-import { PrayerInterface } from '../interfaces';
+import { IPrayer } from '../interfaces';
 import timeHandlerHelper from './timeHandler';
 import setNextPrayerHelper from './setNextPrayer';
 
 // TODO: fix any
 export default () => {
-  const nextPrayer: PrayerInterface = Store.prayers[Store.nextPrayerIndex];
+  const nextPrayer: IPrayer = Store.prayers[Store.nextPrayerIndex];
   const remainderMS = timeHandlerHelper(nextPrayer.time, 'remainder');
 
   const timer = new TinyTimer();

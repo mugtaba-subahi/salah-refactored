@@ -1,9 +1,9 @@
 // @ts-nocheck
-import { PrayerInterface } from '../interfaces';
+import { IPrayer } from '../interfaces';
 import Store from '../store';
 
 export default (): void => {
-  Store.nextPrayerIndex = Store.prayers.findIndex((item: PrayerInterface) => !item.passed);
+  Store.nextPrayerIndex = Store.prayers.findIndex((item: IPrayer) => !item.passed);
 
   if (Store.nextPrayerIndex === -1) return;
 

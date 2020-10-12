@@ -1,17 +1,17 @@
 // @ts-nocheck
-import { ApiPrayersInterface, PrayerInterface } from '../interfaces';
+import { IApiPrayers, IPrayer } from '../interfaces';
 
 import Store from '../store';
 import timeHandlerHelper from './timeHandler';
 import timeToMilitary from './timeToMilitary';
 
-export default async (): Promise<PrayerInterface[]> => {
+export default async (): Promise<IPrayer[]> => {
   const key: string = '2a99f189-6e3b-4015-8fb8-ff277642561d';
   const url: string = `https://www.londonprayertimes.com/api/times/?format=json&key=${key}`;
   const response = await fetch(url);
-  const data: ApiPrayersInterface = await response.json();
+  const data: IApiPrayers = await response.json();
 
-  // const data: ApiPrayersInterface = {
+  // const data: IApiPrayers = {
   //   fajr: '00:14',
   //   fajr_jamat: '00:14',
   //   sunrise: '00:14',

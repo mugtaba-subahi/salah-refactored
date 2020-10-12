@@ -1,4 +1,4 @@
-export default (time: string, format: string): number | boolean | null => {
+export default (time: string, format: 'remainder' | 'isPassed'): number | boolean => {
   const currentTimeMS: number = new Date().getTime();
   const [hour, minute] = time.split(':');
 
@@ -13,7 +13,5 @@ export default (time: string, format: string): number | boolean | null => {
       return nextTimeMS - currentTimeMS;
     case 'isPassed':
       return currentTimeMS > nextTimeMS;
-    default:
-      return null;
   }
 };

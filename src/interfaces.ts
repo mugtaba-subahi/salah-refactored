@@ -1,4 +1,4 @@
-export interface ApiPrayersInterface {
+export interface IApiPrayers {
   [key: string]: any;
   city: string;
   date: string;
@@ -16,7 +16,7 @@ export interface ApiPrayersInterface {
   isha_jamat: string;
 }
 
-export interface PrayerInterface {
+export interface IPrayer {
   time: string;
   passed: any; // CHANGE THIS
   english: string;

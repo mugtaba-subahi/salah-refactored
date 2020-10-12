@@ -3,3 +3,4 @@ look into [key: string]: any;
 swap from normal css to tailwindcss
 fix all TODO: FIX THIS 'any' comments
 fix all typescript @ts-ignore
+add pipelines
