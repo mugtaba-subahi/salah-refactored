@@ -1,4 +1,4 @@
-export interface IApiPrayers {
+export interface IApi {
   [key: string]: string;
   city: string;
   date: string;
