@@ -7,10 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-// @ts-nocheck
 import Store from '../store';
-
-// state
 export const store = Store;
 </script>
 

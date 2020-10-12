@@ -1,11 +1,7 @@
-// @ts-nocheck
 import { IApiPrayers, IPrayer } from '../interfaces';
-
 import Store from '../store';
-import timeHandlerHelper from './timeHandler';
-import timeToMilitary from './timeToMilitary';
 
-export default async (): Promise<IPrayer[]> => {
+export default async (): Promise<void> => {
   const key: string = '2a99f189-6e3b-4015-8fb8-ff277642561d';
   const url: string = `https://www.londonprayertimes.com/api/times/?format=json&key=${key}`;
   const response = await fetch(url);
@@ -28,7 +24,7 @@ export default async (): Promise<IPrayer[]> => {
   //   city: 'london'
   // };
 
-  const prayers = [];
+  const prayers: IPrayer[] = [];
 
   Store.english.map((name, index) => {
     const prayer = {

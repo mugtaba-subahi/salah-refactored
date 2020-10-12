@@ -1,5 +1,3 @@
-// @ts-nocheck
-
 import TinyTimer from 'tiny-timer';
 import dayjs from 'dayjs';
 import Store from '../store';

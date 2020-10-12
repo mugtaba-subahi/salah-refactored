@@ -11,8 +11,6 @@ import { ref } from 'vue';
 import getDate from '../helpers/getDate';
 
 export const date = ref(getDate);
-
-export default {}; // stops typescript from crying
 </script>
 
 <style lang="postcss" scoped>

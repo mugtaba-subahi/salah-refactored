@@ -1,6 +1,4 @@
-// @ts-nocheck
 import Store from '../store';
-import { IPrayer } from '../interfaces';
 import timeToMilitaryHelper from './timeToMilitary';
 import timeHandlerHelper from './timeHandler';
 

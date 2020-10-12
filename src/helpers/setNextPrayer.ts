@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { IPrayer } from '../interfaces';
 import Store from '../store';
 

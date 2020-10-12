@@ -5,10 +5,9 @@
 </template>
 
 <script lang="ts" setup>
-// @ts-nocheck
 import { onMounted } from 'vue';
-import Store from './store';
-import TimerComponent from './components/Timer.vue';
+import Store from './store'; // @ts-ignore
+import TimerComponent from './components/Timer.vue'; // @ts-ignore
 import HeadingComponent from './components/Heading.vue';
 import PrayerComponent from './components/Prayer.vue';
 import setDataHelper from './helpers/setData';
