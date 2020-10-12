@@ -7,10 +7,11 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue';
+import { ref, Ref } from 'vue';
 import getDate from '../helpers/getDate';
 
-export const date = ref(getDate);
+// state
+export const date: Ref<string> = ref(getDate);
 </script>
 
 <style lang="postcss" scoped>

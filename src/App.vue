@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import { onMounted } from 'vue';
+import { onMounted, Component } from 'vue';
 import Store from './store'; // @ts-ignore
 import TimerComponent from './components/Timer.vue'; // @ts-ignore
 import HeadingComponent from './components/Heading.vue';
@@ -15,12 +15,12 @@ import setConvertedTimeHelper from './helpers/setConvertedTime';
 import setNextPrayerHelper from './helpers/setNextPrayer';
 
 // state
-export const store = Store;
+export const store: object = Store;
 
 // components
-export const Timer = TimerComponent;
-export const Heading = HeadingComponent;
-export const Prayer = PrayerComponent;
+export const Timer: Component = TimerComponent;
+export const Heading: Component = HeadingComponent;
+export const Prayer: Component = PrayerComponent;
 
 // hooks
 onMounted(async () => {

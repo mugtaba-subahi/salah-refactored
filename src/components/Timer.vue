@@ -8,7 +8,9 @@
 
 <script lang="ts" setup>
 import Store from '../store';
-export const store = Store;
+
+// state
+export const store: object = Store;
 </script>
 
 <style lang="postcss" scoped>

@@ -1,2 +1,1 @@
-use Ref<string> in components
 add pipelines
