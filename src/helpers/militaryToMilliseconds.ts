@@ -4,6 +4,7 @@ export default (time: string): number => {
   const now = new Date();
   now.setHours(+hour);
   now.setMinutes(+minute);
+  now.setSeconds(0);
 
-  return now.valueOf();
+  return now.getTime();
 };
