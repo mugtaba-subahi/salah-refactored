@@ -7,7 +7,7 @@ import militaryToMilliseconds from './militaryToMilliseconds';
 
 export default () => {
   const nextPrayer: IPrayer = Store.prayers[Store.nextPrayerIndex];
-  const nextPrayerTime: number = militaryToMilliseconds(nextPrayer.time);
+  const nextPrayerTime = militaryToMilliseconds(nextPrayer.time);
 
   const now: number = new Date().getTime();
   const remainder = nextPrayerTime - now;
