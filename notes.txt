@@ -2,3 +2,4 @@ add pipelines
 add google roboto font 
 update docs
 add more tests
+add more error checking on params for all helpers
