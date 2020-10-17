@@ -6,10 +6,10 @@ import validateTimeHelper from '../../src/helpers/validateTime';
 import handler from '../../src/helpers/stringToMilitary';
 
 describe('stringToMilitary helper', () => {
+  afterEach(() => jest.clearAllMocks());
+
   const convertTimeMock = convertTime as jest.Mock;
   const validateTimeHelperMock = validateTimeHelper as jest.Mock;
-
-  afterEach(() => jest.clearAllMocks());
 
   it('should fail when passing invalid integer time type', done => {
     validateTimeHelperMock.mockReturnValueOnce(false);
