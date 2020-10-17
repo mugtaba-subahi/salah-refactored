@@ -7,7 +7,7 @@ describe('militaryToMilliseconds helper', () => {
       handler(13);
       done.fail();
     } catch (error) {
-      expect(error.message).toBe('Invalid time format');
+      expect(error.message).toBe('Invalid time');
       done();
     }
 
@@ -16,7 +16,7 @@ describe('militaryToMilliseconds helper', () => {
       handler({});
       done.fail();
     } catch (error) {
-      expect(error.message).toBe('Invalid time format');
+      expect(error.message).toBe('Invalid time');
       done();
     }
 
@@ -25,7 +25,7 @@ describe('militaryToMilliseconds helper', () => {
       handler([]);
       done.fail();
     } catch (error) {
-      expect(error.message).toBe('Invalid time format');
+      expect(error.message).toBe('Invalid time');
       done();
     }
   });
@@ -35,7 +35,7 @@ describe('militaryToMilliseconds helper', () => {
       handler('100');
       done.fail();
     } catch (error) {
-      expect(error.message).toBe('Invalid time format');
+      expect(error.message).toBe('Invalid time');
       done();
     }
 
@@ -43,7 +43,7 @@ describe('militaryToMilliseconds helper', () => {
       handler('100:10');
       done.fail();
     } catch (error) {
-      expect(error.message).toBe('Invalid time format');
+      expect(error.message).toBe('Invalid time');
       done();
     }
 
@@ -51,7 +51,7 @@ describe('militaryToMilliseconds helper', () => {
       handler('66:66');
       done.fail();
     } catch (error) {
-      expect(error.message).toBe('Invalid time format');
+      expect(error.message).toBe('Invalid time');
       done();
     }
   });

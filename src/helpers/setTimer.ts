@@ -10,7 +10,7 @@ export default () => {
   const nextPrayerTime = militaryToMilliseconds(nextPrayer.time);
 
   const now: number = new Date().getTime();
-  const remainder = nextPrayerTime - now;
+  const remainder: number = nextPrayerTime - now;
 
   const timer = new TinyTimer();
   timer.start(remainder);
