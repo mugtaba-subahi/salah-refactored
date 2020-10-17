@@ -1,4 +1,4 @@
-import handler from '../src/helpers/militaryToMilliseconds';
+import handler from '../../src/helpers/militaryToMilliseconds';
 
 describe('militaryToMilliseconds helper', () => {
   it('should fail when passing invalid time type', done => {
