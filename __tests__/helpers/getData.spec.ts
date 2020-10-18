@@ -6,7 +6,7 @@ describe('getData helper', () => {
   const fetchMock = (window.fetch = jest.fn());
 
   it('should fail getting data', async done => {
-    fetchMock.mockRejectedValueOnce('data retrieval failed');
+    fetchMock.mockRejectedValueOnce('failed');
 
     try {
       await handler('random url');
@@ -14,18 +14,18 @@ describe('getData helper', () => {
     } catch (error) {
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith('random url');
-      expect(error).toBe('data retrieval failed');
+      expect(error).toBe('failed');
       done();
     }
   });
 
   it('should pass getting data', async done => {
-    fetchMock.mockResolvedValueOnce({ json: () => 'data retrieval successed' });
+    fetchMock.mockResolvedValueOnce({ json: () => 'success' });
 
     const result = await handler('random url');
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledWith('random url');
-    expect(result).toBe('data retrieval successed');
+    expect(result).toBe('success');
     done();
   });
 });
