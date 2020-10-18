@@ -15,6 +15,7 @@ describe('getData helper', () => {
       expect(fetchMock).toHaveBeenCalledTimes(1);
       expect(fetchMock).toHaveBeenCalledWith('random url');
       expect(error).toBe('failed');
+
       done();
     }
   });
@@ -26,6 +27,7 @@ describe('getData helper', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
     expect(fetchMock).toHaveBeenCalledWith('random url');
     expect(result).toBe('success');
+
     done();
   });
 });
