@@ -1,4 +1,4 @@
-import validateTimeHelper from '../helpers/validateTime';
+import validateTimeHelper from './validateTime';
 
 export default (time: string): number => {
   const isValidTime: boolean = validateTimeHelper(time);

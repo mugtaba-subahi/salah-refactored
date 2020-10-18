@@ -1,6 +1,6 @@
-import handler from '../../src/helpers/militaryToMilliseconds';
+import handler from '../../src/helpers/convert24hrToMillisecond';
 
-describe('militaryToMilliseconds helper', () => {
+describe('convert24hrToMillisecond helper', () => {
   it('should fail when passing invalid time type', done => {
     try {
       // @ts-expect-error
@@ -56,7 +56,7 @@ describe('militaryToMilliseconds helper', () => {
     }
   });
 
-  it('should pass when passing correct military time format', done => {
+  it('should pass when passing correct 24hr time format', done => {
     const result: number = handler('22:10');
     expect(typeof result).toBe('number');
     done();

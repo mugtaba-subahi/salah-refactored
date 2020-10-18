@@ -3,11 +3,11 @@ import dayjs from 'dayjs';
 import Store from '../store';
 import { IPrayer } from '../interfaces';
 import setNextPrayerHelper from './setNextPrayer';
-import militaryToMilliseconds from './militaryToMilliseconds';
+import convert24hrToMillisecondHelper from './convert24hrToMillisecond';
 
 export default () => {
   const nextPrayer: IPrayer = Store.prayers[Store.nextPrayerIndex];
-  const nextPrayerTime = militaryToMilliseconds(nextPrayer.time);
+  const nextPrayerTime = convert24hrToMillisecondHelper(nextPrayer.time);
 
   const now: number = new Date().getTime();
   const remainder: number = nextPrayerTime - now;

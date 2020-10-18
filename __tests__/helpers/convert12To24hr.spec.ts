@@ -3,10 +3,10 @@ jest.mock('../../src/helpers/validateTime.ts');
 
 import convertTime from 'convert-time';
 import validateTimeHelper from '../../src/helpers/validateTime';
-import handler from '../../src/helpers/stringToMilitary';
+import handler from '../../src/helpers/convert12To24hr';
 
-describe('stringToMilitary helper', () => {
-  afterEach(() => jest.clearAllMocks());
+describe('convert12To24hr helper', () => {
+  beforeEach(() => jest.clearAllMocks());
 
   const convertTimeMock = convertTime as jest.Mock;
   const validateTimeHelperMock = validateTimeHelper as jest.Mock;

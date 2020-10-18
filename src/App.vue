@@ -6,10 +6,13 @@
 
 <script lang="ts" setup>
 import { onMounted, Component } from 'vue';
+import { url } from './config';
+import { IApi } from './interfaces';
 import Store from './store'; // @ts-ignore
 import TimerComponent from './components/Timer.vue'; // @ts-ignore
 import HeadingComponent from './components/Heading.vue';
 import PrayerComponent from './components/Prayer.vue';
+import getDataHelper from './helpers/getData';
 import setDataHelper from './helpers/setData';
 import setConvertedTimeHelper from './helpers/setConvertedTime';
 import setNextPrayerHelper from './helpers/setNextPrayer';
@@ -25,7 +28,8 @@ export const Prayer: Component = PrayerComponent;
 // hooks
 onMounted(async () => {
   try {
-    await setDataHelper();
+    const data: IApi = await getDataHelper(url);
+    setDataHelper(data);
     setConvertedTimeHelper();
     setNextPrayerHelper();
   } catch (error) {
