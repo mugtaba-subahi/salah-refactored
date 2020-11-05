@@ -1,16 +1,15 @@
 <template>
   <div class="timer">
-    <p class="timer__item" v-if="store.nextPrayerIndex !== -1">{{ store.prayers[store.nextPrayerIndex].english }} in</p>
-    <p class="timer__item timer--time" v-if="store.nextPrayerIndex !== -1">{{ store.remainder }}</p>
+    <p class="timer__item" v-if="SState.nextPrayerIndex !== -1">{{ SState.prayers[SState.nextPrayerIndex].english }} in</p>
+    <p class="timer__item timer--time" v-if="SState.nextPrayerIndex !== -1">{{ SState.remainder }}</p>
     <p class="timer__item" v-else>All prayers passed</p>
   </div>
 </template>
 
 <script lang="ts" setup>
-import Store from '../store';
+import * as Store from '../store';
 
-// state
-export const store: object = Store;
+export const { state: SState } = Store;
 </script>
 
 <style lang="postcss" scoped>
