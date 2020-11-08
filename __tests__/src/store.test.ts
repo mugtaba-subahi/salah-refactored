@@ -4,11 +4,11 @@ jest.mock('vue', () => ({
 }));
 
 import { reactive, readonly } from 'vue';
-import { state as State, read as Read } from '../../src/store';
+import * as handler from '../../src/store';
 
 describe('store', () => {
   it('should get state data', done => {
-    const state = State();
+    const state = handler.state();
 
     expect(state.remainder).toBe('any output');
     expect(reactive).toBeCalledTimes(1);
@@ -17,7 +17,7 @@ describe('store', () => {
   });
 
   it('should get read data', done => {
-    const read = Read();
+    const read = handler.read();
 
     expect(read.english[0]).toBe('any output');
     expect(readonly).toBeCalledTimes(1);
