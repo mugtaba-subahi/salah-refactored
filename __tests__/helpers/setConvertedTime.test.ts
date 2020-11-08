@@ -25,7 +25,7 @@ describe('setConvertedTime helper', () => {
     expect(mockConvert12To24hrHelper).toHaveBeenCalledTimes(1);
     expect(mockConvert24hrToMillisecondHelper).toHaveBeenCalledTimes(1);
     expect(State().prayers.length).toBe(1);
-    expect(State().prayers[0].time).toBe('any output');
+    expect(State().prayers[0].passed).toBe(false);
     expect(State().prayers[0].time).toBe('any output');
 
     done();
