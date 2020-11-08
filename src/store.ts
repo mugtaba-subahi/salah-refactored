@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { reactive, readonly } from 'vue';
 
 const mutable = reactive({
