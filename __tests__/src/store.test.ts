@@ -16,7 +16,7 @@ describe('store', () => {
     done();
   });
 
-  it('should get state data', done => {
+  it('should get read data', done => {
     const read = Read();
 
     expect(read.english[0]).toBe('any output');
