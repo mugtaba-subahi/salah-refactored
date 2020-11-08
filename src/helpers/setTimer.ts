@@ -1,12 +1,12 @@
 import TinyTimer from 'tiny-timer';
 import dayjs from 'dayjs';
-import { state as SState } from '../store';
+import { state as State } from '../store';
 import { IPrayer } from '../interfaces';
 import setNextPrayerHelper from './setNextPrayer';
 import convert24hrToMillisecondHelper from './convert24hrToMillisecond';
 
 export default () => {
-  const nextPrayer: IPrayer = SState.prayers[SState.nextPrayerIndex];
+  const nextPrayer: IPrayer = State().prayers[State().nextPrayerIndex];
   const nextPrayerTime = convert24hrToMillisecondHelper(nextPrayer.time);
 
   const now: number = new Date().getTime();
@@ -20,12 +20,12 @@ export default () => {
       .add(tick, 'ms')
       .format('H[h] m[min] s[s]');
 
-    SState.remainder = timeLeft;
+    State().remainder = timeLeft;
   });
 
   timer.on('done', () => {
-    SState.prayers[SState.nextPrayerIndex].passed = true;
-    SState.prayers[SState.nextPrayerIndex].isNext = false;
+    State().prayers[State().nextPrayerIndex].passed = true;
+    State().prayers[State().nextPrayerIndex].isNext = false;
     setNextPrayerHelper();
   });
 };

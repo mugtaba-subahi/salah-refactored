@@ -8,6 +8,7 @@ describe('convert24hrToMillisecond helper', () => {
       done.fail();
     } catch (error) {
       expect(error.message).toBe('Invalid time');
+
       done();
     }
 
@@ -17,6 +18,7 @@ describe('convert24hrToMillisecond helper', () => {
       done.fail();
     } catch (error) {
       expect(error.message).toBe('Invalid time');
+
       done();
     }
 
@@ -26,6 +28,7 @@ describe('convert24hrToMillisecond helper', () => {
       done.fail();
     } catch (error) {
       expect(error.message).toBe('Invalid time');
+
       done();
     }
   });
@@ -36,6 +39,7 @@ describe('convert24hrToMillisecond helper', () => {
       done.fail();
     } catch (error) {
       expect(error.message).toBe('Invalid time');
+
       done();
     }
 
@@ -44,6 +48,7 @@ describe('convert24hrToMillisecond helper', () => {
       done.fail();
     } catch (error) {
       expect(error.message).toBe('Invalid time');
+
       done();
     }
 
@@ -52,6 +57,7 @@ describe('convert24hrToMillisecond helper', () => {
       done.fail();
     } catch (error) {
       expect(error.message).toBe('Invalid time');
+
       done();
     }
   });
@@ -59,6 +65,7 @@ describe('convert24hrToMillisecond helper', () => {
   it('should pass when passing correct 24hr time format', done => {
     const result: number = handler('22:10');
     expect(typeof result).toBe('number');
+    
     done();
   });
 });

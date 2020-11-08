@@ -1,14 +1,13 @@
 <template>
   <Timer />
   <Heading class="heading" />
-  <Prayer v-for="prayer in SState.prayers" :key="prayer" v-bind="prayer" />
+  <Prayer v-for="prayer in State().prayers" :key="prayer" v-bind="prayer" />
 </template>
 
 <script lang="ts" setup>
 import { onMounted, Component } from 'vue';
 import { url } from './config';
-import { IApi } from './interfaces';
-import * as Store from './store'; // @ts-ignore
+import { IApi } from './interfaces'; // @ts-ignore
 import TimerComponent from './components/Timer.vue'; // @ts-ignore
 import HeadingComponent from './components/Heading.vue';
 import PrayerComponent from './components/Prayer.vue';
@@ -16,9 +15,7 @@ import getDataHelper from './helpers/getData';
 import setDataHelper from './helpers/setData';
 import setConvertedTimeHelper from './helpers/setConvertedTime';
 import setNextPrayerHelper from './helpers/setNextPrayer';
-
-// state
-export const { state: SState } = Store;
+export { state as State } from './store';
 
 // components
 export const Timer: Component = TimerComponent;

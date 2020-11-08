@@ -7,9 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import getDate from '../helpers/getDate';
-
-export const date = getDate;
+export { default as date } from '../helpers/getDate';
 </script>
 
 <style lang="postcss" scoped>

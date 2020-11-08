@@ -33,6 +33,7 @@ fdescribe('validateTime helper', () => {
   it('should pass when passing correct time format', done => {
     const isValidTime: boolean = handler('23:59');
     expect(isValidTime).toBe(true);
+    
     done();
   });
 });

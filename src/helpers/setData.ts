@@ -1,15 +1,15 @@
 import { IApi, IPrayer } from '../interfaces';
-import { state as SState, read as SRead } from '../store';
+import { state as State, read as Read } from '../store';
 
 export default (data: IApi): void => {
   const preparePrayer = (name: string, index: number): IPrayer => ({
-    arabic: SRead.arabic[index],
+    arabic: Read().arabic[index],
     english: name,
     isNext: false,
     passed: false,
     time: data[name.toLocaleLowerCase()]
   });
 
-  const prayers: IPrayer[] = SRead.english.map(preparePrayer);
-  SState.prayers = prayers;
+  const prayers: IPrayer[] = Read().english.map(preparePrayer);
+  State().prayers = prayers;
 };

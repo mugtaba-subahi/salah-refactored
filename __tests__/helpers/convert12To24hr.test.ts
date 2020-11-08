@@ -8,11 +8,11 @@ import handler from '../../src/helpers/convert12To24hr';
 describe('convert12To24hr helper', () => {
   beforeEach(() => jest.clearAllMocks());
 
-  const convertTimeMock = convertTime as jest.Mock;
-  const validateTimeHelperMock = validateTimeHelper as jest.Mock;
+  const mockConvertTime = convertTime as jest.Mock;
+  const mockValidateTimeHelper = validateTimeHelper as jest.Mock;
 
   it('should fail when passing invalid integer time type', done => {
-    validateTimeHelperMock.mockReturnValueOnce(false);
+    mockValidateTimeHelper.mockReturnValueOnce(false);
 
     try {
       // @ts-expect-error
@@ -20,7 +20,8 @@ describe('convert12To24hr helper', () => {
       done.fail();
     } catch (error) {
       expect(error.message).toBe('Invalid time');
-      expect(convertTimeMock).toBeCalledTimes(0);
+      expect(mockConvertTime).toBeCalledTimes(0);
+
       done();
     }
   });
@@ -32,7 +33,8 @@ describe('convert12To24hr helper', () => {
       done.fail();
     } catch (error) {
       expect(error.message).toBe('Invalid time');
-      expect(convertTimeMock).toBeCalledTimes(0);
+      expect(mockConvertTime).toBeCalledTimes(0);
+      
       done();
     }
   });
@@ -44,95 +46,95 @@ describe('convert12To24hr helper', () => {
       done.fail();
     } catch (error) {
       expect(error.message).toBe('Invalid time');
-      expect(convertTimeMock).toBeCalledTimes(0);
+      expect(mockConvertTime).toBeCalledTimes(0);
 
       done();
     }
   });
 
   it('should pass without converting time if Fajr, Sunrise or random input', done => {
-    validateTimeHelperMock.mockReturnValueOnce(true);
+    mockValidateTimeHelper.mockReturnValueOnce(true);
 
     const fajr: string = handler('Fajr', '15:15');
     expect(fajr).toBe('15:15');
-    expect(convertTimeMock).toBeCalledTimes(0);
+    expect(mockConvertTime).toBeCalledTimes(0);
 
-    validateTimeHelperMock.mockReturnValueOnce(true);
+    mockValidateTimeHelper.mockReturnValueOnce(true);
 
     const sunrise: string = handler('Sunrise', '18:18');
     expect(sunrise).toBe('18:18');
-    expect(convertTimeMock).toBeCalledTimes(0);
+    expect(mockConvertTime).toBeCalledTimes(0);
 
-    validateTimeHelperMock.mockReturnValueOnce(true);
+    mockValidateTimeHelper.mockReturnValueOnce(true);
 
     const anyInput: string = handler('any input', '18:18');
     expect(anyInput).toBe('18:18');
-    expect(convertTimeMock).toBeCalledTimes(0);
+    expect(mockConvertTime).toBeCalledTimes(0);
 
     done();
   });
 
   it('should pass without converting time for Dhuhr if time is before 12pm', done => {
-    validateTimeHelperMock.mockReturnValueOnce(true);
+    mockValidateTimeHelper.mockReturnValueOnce(true);
 
     const time: string = handler('Dhuhr', '10:12');
     expect(time).toBe('10:12');
-    expect(convertTimeMock).toBeCalledTimes(0);
+    expect(mockConvertTime).toBeCalledTimes(0);
 
     done();
   });
 
   it('should pass and convert time for Dhuhr if time is at 12pm', done => {
-    validateTimeHelperMock.mockReturnValueOnce(true);
-    convertTimeMock.mockReturnValueOnce('12:00');
+    mockValidateTimeHelper.mockReturnValueOnce(true);
+    mockConvertTime.mockReturnValueOnce('12:00');
 
     const time: string = handler('Dhuhr', '00:00');
     expect(time).toBe('12:00');
-    expect(convertTimeMock).toBeCalledTimes(1);
+    expect(mockConvertTime).toBeCalledTimes(1);
 
     done();
   });
 
   it('should pass and convert time for Dhuhr if time is after 12pm', done => {
-    validateTimeHelperMock.mockReturnValueOnce(true);
-    convertTimeMock.mockReturnValueOnce('13:35');
+    mockValidateTimeHelper.mockReturnValueOnce(true);
+    mockConvertTime.mockReturnValueOnce('13:35');
 
     const time: string = handler('Dhuhr', '01:35');
     expect(time).toBe('13:35');
-    expect(convertTimeMock).toBeCalledTimes(1);
+    expect(mockConvertTime).toBeCalledTimes(1);
 
     done();
   });
 
   it('should pass and convert time for Asr', done => {
-    validateTimeHelperMock.mockReturnValueOnce(true);
-    convertTimeMock.mockReturnValueOnce('14:53');
+    mockValidateTimeHelper.mockReturnValueOnce(true);
+    mockConvertTime.mockReturnValueOnce('14:53');
 
     const time: string = handler('Asr', '02:53');
     expect(time).toBe('14:53');
-    expect(convertTimeMock).toBeCalledTimes(1);
+    expect(mockConvertTime).toBeCalledTimes(1);
 
     done();
   });
 
   it('should pass and convert time for Magrib', done => {
-    validateTimeHelperMock.mockReturnValueOnce(true);
-    convertTimeMock.mockReturnValueOnce('18:33');
+    mockValidateTimeHelper.mockReturnValueOnce(true);
+    mockConvertTime.mockReturnValueOnce('18:33');
 
     const time: string = handler('Magrib', '06:33');
     expect(time).toBe('18:33');
-    expect(convertTimeMock).toBeCalledTimes(1);
+    expect(mockConvertTime).toBeCalledTimes(1);
 
     done();
   });
 
   it('should pass and convert time for Isha', done => {
-    validateTimeHelperMock.mockReturnValueOnce(true);
-    convertTimeMock.mockReturnValueOnce('21:27');
+    mockValidateTimeHelper.mockReturnValueOnce(true);
+    mockConvertTime.mockReturnValueOnce('21:27');
 
     const time: string = handler('Isha', '09:27');
     expect(time).toBe('21:27');
-    expect(convertTimeMock).toBeCalledTimes(1);
+    expect(mockConvertTime).toBeCalledTimes(1);
 
     done();
   });

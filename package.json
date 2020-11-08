@@ -53,7 +53,7 @@
   },
   "jest": {
     "testMatch": [
-      "**/__tests__/**/*.spec.ts"
+      "**/__tests__/**/*.test.ts"
     ],
     "preset": "ts-jest"
   }
